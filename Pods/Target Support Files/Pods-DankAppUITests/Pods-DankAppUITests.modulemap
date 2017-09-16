@@ -1,0 +1,6 @@
+framework module Pods_DankAppUITests {
+  umbrella header "Pods-DankAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
