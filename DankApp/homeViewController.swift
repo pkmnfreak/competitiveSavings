@@ -165,8 +165,11 @@ class homeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let budget = (Array(dict.values)[0] as! [String : AnyObject])["budget"]
                 let currentRound = (Array(dict.values)[0] as! [String : AnyObject])["currentRound"]
                 if let stats = (Array(dict.values)[0] as! [String : AnyObject])["stats"] {
-                    let total = (stats[currentRound] as! [String : AnyObject])["total"]
-                    cell.budgetLabel.text = "Percent: " + String((total as! Double) / (budget as! Double)) + "%"
+                    if let total = (stats[currentRound] as! [String : AnyObject])["total"] {
+                        cell.budgetLabel.text = "Percent: " + String((total as! Double) / (budget as! Double)) + "%"
+                    } else {
+                        cell.budgetLabel.text = "Percent: 0%"
+                    }
                 } else {
                     cell.budgetLabel.text = "Percent: 0%"
                 }
